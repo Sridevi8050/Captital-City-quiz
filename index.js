@@ -41,6 +41,10 @@ app.use(express.static("public"));
 
 let currentQuestion = {};
 
+async function nextQuestion() {
+  const randomCountry = quiz[Math.floor(Math.random() * quiz.length)];
+  currentQuestion = randomCountry;
+}
 
 app.get("/", async (req, res) => {
   totalCorrect = 0;
@@ -66,12 +70,6 @@ app.post("/submit", (req, res) => {
     totalScore: totalCorrect,
   });
 });
-
-async function nextQuestion() {
-  const randomCountry = quiz[Math.floor(Math.random() * quiz.length)];
-  currentQuestion = randomCountry;
-}
-
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
