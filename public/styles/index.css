@@ -1,22 +1,27 @@
-body {
+   body {
     background-image: url(../images/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
   }
   
   .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    max-width: 40%;
-    height: 300px;
-    margin: 15% auto;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 400px;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding-top: 10px;
+    text-align: center;
   }
   
   h1 {
@@ -29,23 +34,20 @@ body {
   
   .anscontainer {
     width: 100%;
-    text-align: center;
   }
   
   input {
-    text-align: center;
-    width: 30%;
-    margin: 10px auto;
+    width: 80%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    text-align: center;
   }
   
   button {
     font-weight: 800;
     letter-spacing: 2px;
     font-size: large;
-    display: block;
     width: 100%;
     padding: 10px;
     background-color: #ffca00;
@@ -56,8 +58,10 @@ body {
   }
   
   .horicontainer {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    width: 100%;
   }
   
   button:hover {
@@ -65,36 +69,17 @@ body {
   }
   
   #result {
-    text-align: center;
     font-size: 24px;
   }
   
-  .checkmark {
-    color: transparent;
-    animation: checkmark 0.5s ease;
-  }
-  
-  .cross {
-    color: transparent;
-    animation: cross 0.5s ease;
-  }
-  
   @keyframes checkmark {
-    0% {
-      color: transparent;
-    }
-    100% {
-      color: green;
-    }
+    0% { color: transparent; }
+    100% { color: green; }
   }
   
   @keyframes cross {
-    0% {
-      color: transparent;
-    }
-    100% {
-      color: red;
-    }
+    0% { color: transparent; }
+    100% { color: red; }
   }
   
   .restart-button {
@@ -104,9 +89,37 @@ body {
     padding: 15px 30px;
     font-size: 18px;
     text-align: center;
-    text-decoration: none;
     border-radius: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      width: 80%;
+      padding: 15px;
+    }
+    input {
+      width: 90%;
+    }
+    button {
+      font-size: medium;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      width: 95%;
+    }
+    h1 {
+      font-size: 20px;
+    }
+    input {
+      width: 100%;
+    }
+    .horicontainer {
+      grid-template-columns: 1fr;
+    }
   }
   
